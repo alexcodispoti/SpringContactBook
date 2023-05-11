@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.5'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17' //Versioni di java che vogliamo sia compatibile con questo progetto
+
+repositories {
+	mavenCentral() //Anche gradle utilizza i repositories di Maven
+}
+
+dependencies {
+	
+	implementation 'org.springframework.boot:spring-boot-starter-validation' // Dependency che ci permette di VALIDARE I FORM
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' //Ci permette di -transformare le classi e i dati java in formato Html
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

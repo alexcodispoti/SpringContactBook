@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Contact</title>
+    <style>
+        button {
+            display: inline-block;
+            padding: 10px 10px;
+            border: 2px solid black;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        input {
+            padding: 10px 10px;
+            border: 2px solid black;
+            border-radius: 8px;
+            border: 2px solid black;
+            text-align: center;
+        }
+        h1{
+            margin-left: 2px;
+            
+            
+        }
+    </style>
+    <script>
+        function ricerca(){
+            
+            let key = document.getElementById("input").value;
+            // Creo l'URL per inserire nella Key del metodo(in appcontroller.java),la stringa key da ricercare
+            let url = "/search?key=" + key;
+            //Come cambiare la pagina al click e dargli il percorso da raggiungere
+            location.href = url;
+        } 
+    </script>
+</head>
+<body>
+
+    <h1> Ricerca Contatto </h1>
+    <input type="text" id="input" value="" placeholder="Inserisci la chiave di ricerca ..."> 
+    <button type="button" onclick="ricerca()" id = "searchbutton" > Search </button>
+    <p id="ricerca">
+        <!-- <h1 th:text = " ${contact.nome} "></h1> -->
+    </p>
+    <ul>
+        <!-- creami una li per ogni elemento dell'arraylist -->
+        <!--Il dollaro va a pescare la variabile--> 
+            <li th:each="contatto:${contatti}"> <!-- Esso funziona come il foreach che cicla l'oggetto CONTATTO nel contenitore di dati Contatti che in questo caso è un ArrayList-->
+                <a th:href="@{ '/contatti/' + ${contatto.id}}" th:text="@{ ${contatto.nome} + ' ' + ${contatto.cognome}}"> 
+                </a>
+            </li> 
+        </ul>
+    
+</body>
+</html>

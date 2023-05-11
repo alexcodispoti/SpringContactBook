@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        
+<h1 th:text="@{${contatto.nome} + ' ' + ${contatto.cognome} + ' ' + ${contatto.id} + ' ' + ${contatto.telefono}}"> </h1> <!-- Inserisco contatto.nome per accedere all'attributo dell'ogetto contatto-->
+</body>
+</html>

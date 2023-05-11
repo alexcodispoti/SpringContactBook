@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h1> Rubrica </h1>
+    <ul>
+        <!-- creami una li per ogni elemento dell'arraylist -->
+        <!--Il dollaro va a pescare la variabile-->
+        <li th:each="contatto:${contatti}">
+            <!-- Esso funziona come il foreach che cicla l'oggetto CONTATTO nel contenitore di dati Contatti che in questo caso è un ArrayList-->
+            <a th:href="@{ '/contatti/' + ${contatto.id}}" th:text="@{ ${contatto.nome} + ' ' + ${contatto.cognome}}">
+            </a>
+        </li>
+    </ul>
+    
+</body>
+
+</html>
